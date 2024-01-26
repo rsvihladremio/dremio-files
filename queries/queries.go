@@ -1,6 +1,6 @@
 package queries
 
-type JsonObject struct {
+type QueriesJSON struct {
 	Username                string        `json:"username"`
 	PendingTime             int64         `json:"pendingTime"`
 	EngineName              string        `json:"engineName"`
