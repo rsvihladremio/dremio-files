@@ -8,8 +8,8 @@ type QueriesJSON struct {
 	SetupTimeNs             int64         `json:"setupTimeNs"`
 	InputBytes              int64         `json:"inputBytes"`
 	PlanningTime            int64         `json:"planningTime"`
-	EngineStartTime         float64       `json:"engineStartTime"`
-	ExecutionPlanningStart  float64       `json:"executionPlanningStart"`
+	EngineStartTime         int64         `json:"engineStartTime"`
+	ExecutionPlanningStart  int64         `json:"executionPlanningStart"`
 	WaitTimeNs              int64         `json:"waitTimeNs"`
 	QueryId                 string        `json:"queryId"`
 	QueryType               string        `json:"queryType"`
@@ -17,14 +17,14 @@ type QueriesJSON struct {
 	QueueName               string        `json:"queueName"`
 	QueuedTime              int64         `json:"queuedTime"`
 	MetadataRetrieval       int64         `json:"metadataRetrieval"`
-	QueryEnqueued           float64       `json:"queryEnqueued"`
+	QueryEnqueued           int64         `json:"queryEnqueued"`
 	ScannedDatasets         []interface{} `json:"scannedDatasets"`
-	Start                   float64       `json:"start"`
+	Start                   int64         `json:"start"`
 	InputRecords            int64         `json:"inputRecords"`
 	QueryCost               float64       `json:"queryCost"`
-	MetadataRetrievalTime   float64       `json:"metadataRetrievalTime"`
+	MetadataRetrievalTime   int64         `json:"metadataRetrievalTime"`
 	StartingTime            int64         `json:"startingTime"`
-	Submitted               float64       `json:"submitted"`
+	Submitted               int64         `json:"submitted"`
 	OutcomeReason           string        `json:"outcomeReason"`
 	Accelerated             bool          `json:"accelerated"`
 	ReflectionRelationships []interface{} `json:"reflectionRelationships"`
@@ -33,12 +33,12 @@ type QueriesJSON struct {
 	Context                 string        `json:"context"`
 	OutputBytes             int64         `json:"outputBytes"`
 	PoolWaitTime            int64         `json:"poolWaitTime"`
-	Finish                  float64       `json:"finish"`
+	Finish                  int64         `json:"finish"`
 	Outcome                 string        `json:"outcome"`
 	ExecutionPlanningTime   int64         `json:"executionPlanningTime"`
 	RunningTime             int64         `json:"runningTime"`
-	PlanningStart           float64       `json:"planningStart"`
-	ExecutionStart          float64       `json:"executionStart"`
+	PlanningStart           int64         `json:"planningStart"`
+	ExecutionStart          int64         `json:"executionStart"`
 	IsTruncatedQueryText    bool          `json:"isTruncatedQueryText"`
 	MemoryAllocated         int64         `json:"memoryAllocated"`
 	QueryText               string        `json:"queryText"`
