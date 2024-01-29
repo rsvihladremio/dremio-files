@@ -39,11 +39,21 @@ type QueriesJSON struct {
 	RunningTime             int64         `json:"runningTime"`
 	PlanningStart           float64       `json:"planningStart"`
 	ExecutionStart          float64       `json:"executionStart"`
+	IsTruncatedQueryText    bool          `json:"isTruncatedQueryText"`
 	MemoryAllocated         int64         `json:"memoryAllocated"`
 	QueryText               string        `json:"queryText"`
 	OutputRecords           int64         `json:"outputRecords"`
 	RequestType             string        `json:"requestType"`
 	ExecutionNodes          []interface{} `json:"executionNodes"`
+}
+
+// GetMetadataRetrieval allows us to get metadata retrieval on older profiles
+func (q *QueriesJSON) GetMetadataRetrieval() int64 {
+	epochSince2017 := int64(1500000000000)
+	if q.MetadataRetrieval > epochSince2017 {
+		return int64(q.MetadataRetrievalTime)
+	}
+	return q.MetadataRetrieval
 }
 
 type ParentsList struct {
