@@ -129,9 +129,9 @@ type ResourceSchedulingProfile struct {
 }
 
 type SchedulingProperties struct {
-	QueryType  string `json:"queryType"`
-	QueryLabel string `json:"queryLabel"`
-	QueryCost  int64  `json:"queryCost"`
+	QueryType  string  `json:"queryType"`
+	QueryLabel string  `json:"queryLabel"`
+	QueryCost  float64 `json:"queryCost"`
 }
 
 type RelInfoMap struct {
