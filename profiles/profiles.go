@@ -20,14 +20,14 @@ type Profile struct {
 	DatasetProfile            []DatasetProfile          `json:"datasetProfile"`
 	Id                        Id                        `json:"id"`
 	TotalFragments            int64                     `json:"totalFragments"`
-	PlanningStart             float64                   `json:"planningStart"`
+	PlanningStart             int64                     `json:"planningStart"`
 	AccelerationProfile       AccelerationProfile       `json:"accelerationProfile"`
-	Start                     float64                   `json:"start"`
+	Start                     int64                     `json:"start"`
 	NodeProfile               []NodeProfile             `json:"nodeProfile"`
 	SerializedPlan            string                    `json:"serializedPlan"`
 	NumPlanCacheUsed          int64                     `json:"numPlanCacheUsed"`
 	NumJoinsInFinalPrel       int64                     `json:"numJoinsInFinalPrel"`
-	End                       float64                   `json:"end"`
+	End                       int64                     `json:"end"`
 	FinishedFragments         int64                     `json:"finishedFragments"`
 	ClientInfo                ClientInfo                `json:"clientInfo"`
 	PlanPhases                []PlanPhases              `json:"planPhases"`
@@ -43,7 +43,7 @@ type Profile struct {
 	StateList                 []StateList               `json:"stateList"`
 	FragmentProfile           []FragmentProfile         `json:"fragmentProfile"`
 	User                      string                    `json:"user"`
-	PlanningEnd               float64                   `json:"planningEnd"`
+	PlanningEnd               int64                     `json:"planningEnd"`
 	JsonPlan                  string                    `json:"jsonPlan"`
 	NumJoinsInUserQuery       int64                     `json:"numJoinsInUserQuery"`
 }
@@ -55,8 +55,8 @@ type DatasetProfile struct {
 }
 
 type Id struct {
-	Part2 float64 `json:"part2"`
-	Part1 float64 `json:"part1"`
+	Part2 string `json:"part2"`
+	Part1 string `json:"part1"`
 }
 
 type AccelerationProfile struct {
@@ -99,16 +99,16 @@ type TimeBreakdownPerRule struct {
 }
 
 type Foreman struct {
-	Roles           Roles   `json:"roles"`
-	StartTime       float64 `json:"startTime"`
-	MaxDirectMemory float64 `json:"maxDirectMemory"`
-	ConduitPort     int64   `json:"conduitPort"`
-	DremioVersion   string  `json:"dremioVersion"`
-	FabricPort      int64   `json:"fabricPort"`
-	UserPort        int64   `json:"userPort"`
-	AvailableCores  int64   `json:"availableCores"`
-	NodeTag         string  `json:"nodeTag"`
-	Address         string  `json:"address"`
+	Roles           Roles  `json:"roles"`
+	StartTime       int64  `json:"startTime"`
+	MaxDirectMemory int64  `json:"maxDirectMemory"`
+	ConduitPort     int64  `json:"conduitPort"`
+	DremioVersion   string `json:"dremioVersion"`
+	FabricPort      int64  `json:"fabricPort"`
+	UserPort        int64  `json:"userPort"`
+	AvailableCores  int64  `json:"availableCores"`
+	NodeTag         string `json:"nodeTag"`
+	Address         string `json:"address"`
 }
 
 type Roles struct {
@@ -118,14 +118,14 @@ type Roles struct {
 }
 
 type ResourceSchedulingProfile struct {
-	ResourceSchedulingEnd   float64              `json:"resourceSchedulingEnd"`
+	ResourceSchedulingEnd   int64                `json:"resourceSchedulingEnd"`
 	QueueName               string               `json:"queueName"`
 	QueueId                 string               `json:"queueId"`
 	RuleContent             string               `json:"ruleContent"`
 	RuleName                string               `json:"ruleName"`
 	RuleAction              string               `json:"ruleAction"`
 	SchedulingProperties    SchedulingProperties `json:"schedulingProperties"`
-	ResourceSchedulingStart float64              `json:"resourceSchedulingStart"`
+	ResourceSchedulingStart int64                `json:"resourceSchedulingStart"`
 }
 
 type SchedulingProperties struct {
@@ -154,8 +154,8 @@ type MetricDef struct {
 }
 
 type StateList struct {
-	State     int64   `json:"state"`
-	StartTime float64 `json:"startTime"`
+	State     int64 `json:"state"`
+	StartTime int64 `json:"startTime"`
 }
 
 type FragmentProfile struct {
@@ -169,13 +169,13 @@ type MinorFragmentProfile struct {
 	MaxMemoryUsed                   float64                      `json:"maxMemoryUsed"`
 	BlockedOnDownstreamDuration     int64                        `json:"blockedOnDownstreamDuration"`
 	NumShortSlices                  int64                        `json:"numShortSlices"`
-	LastProgress                    float64                      `json:"lastProgress"`
+	LastProgress                    int64                        `json:"lastProgress"`
 	RunQLoad                        int64                        `json:"runQLoad"`
-	StartTime                       float64                      `json:"startTime"`
+	StartTime                       int64                        `json:"startTime"`
 	MaxIncomingMemoryUsed           int64                        `json:"maxIncomingMemoryUsed"`
 	SleepingDuration                int64                        `json:"sleepingDuration"`
 	NumSlices                       int64                        `json:"numSlices"`
-	FirstRun                        float64                      `json:"firstRun"`
+	FirstRun                        int64                        `json:"firstRun"`
 	NumLongSlices                   int64                        `json:"numLongSlices"`
 	State                           int64                        `json:"state"`
 	MinorFragmentId                 int64                        `json:"minorFragmentId"`
@@ -183,11 +183,11 @@ type MinorFragmentProfile struct {
 	NumRuns                         int64                        `json:"numRuns"`
 	BlockedOnMemoryDuration         int64                        `json:"blockedOnMemoryDuration"`
 	OperatorProfile                 []OperatorProfile            `json:"operatorProfile"`
-	EndTime                         float64                      `json:"endTime"`
+	EndTime                         int64                        `json:"endTime"`
 	FinishDuration                  int64                        `json:"finishDuration"`
 	BlockedOnUpstreamDuration       int64                        `json:"blockedOnUpstreamDuration"`
 	PerResourceBlockedDuration      []PerResourceBlockedDuration `json:"perResourceBlockedDuration"`
-	LastUpdate                      float64                      `json:"lastUpdate"`
+	LastUpdate                      int64                        `json:"lastUpdate"`
 	BlockedDuration                 int64                        `json:"blockedDuration"`
 	SetupDuration                   int64                        `json:"setupDuration"`
 	BlockedOnSharedResourceDuration int64                        `json:"blockedOnSharedResourceDuration"`
@@ -230,7 +230,7 @@ type PerResourceBlockedDuration struct {
 
 type NodePhaseProfile struct {
 	Endpoint      Endpoint `json:"endpoint"`
-	MaxMemoryUsed float64  `json:"maxMemoryUsed"`
+	MaxMemoryUsed int64    `json:"maxMemoryUsed"`
 }
 
 type Endpoint struct {
